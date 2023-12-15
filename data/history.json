@@ -1,0 +1,82 @@
+[
+    {
+        "id": "conv1",
+        "messages": [
+            {
+                "message": "Hello, how are you?",
+                "id": "msg1",
+                "from": "You"
+            },
+            {
+                "message": "I'm good, thank you!",
+                "id": "msg2",
+                "from": "MeowGPT",
+                "isPrinted": false
+            }
+        ]
+    },
+    {
+        "id": "conv2",
+        "messages": [
+            {
+                "message": "What's the weather like today?",
+                "id": "msg1",
+                "from": "You"
+            },
+            {
+                "message": "It's sunny and warm.",
+                "id": "msg2",
+                "from": "MeowGPT",
+                "isPrinted": true
+            }
+        ]
+    },
+    {
+        "id": "conv3",
+        "messages": [
+            {
+                "message": "Can you tell me a joke?",
+                "id": "msg1",
+                "from": "You"
+            },
+            {
+                "message": "Sure, why don't scientists trust atoms? Because they make up everything!",
+                "id": "msg2",
+                "from": "MeowGPT",
+                "isPrinted": false
+            }
+        ]
+    },
+    {
+        "id": "conv4",
+        "messages": [
+            {
+                "message": "What's your favorite color?",
+                "id": "msg1",
+                "from": "You"
+            },
+            {
+                "message": "I don't have a favorite color, but blue is quite popular.",
+                "id": "msg2",
+                "from": "MeowGPT",
+                "isPrinted": true
+            }
+        ]
+    },
+    {
+        "id": "conv5",
+        "messages": [
+            {
+                "message": "Do you like music?",
+                "id": "msg1",
+                "from": "You"
+            },
+            {
+                "message": "Yes, I find music very fascinating.",
+                "id": "msg2",
+                "from": "MeowGPT",
+                "isPrinted": false
+            }
+        ]
+    }
+]
