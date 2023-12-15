@@ -1,7 +1,7 @@
 import { Controller, Get, HttpStatus, Res } from '@nestjs/common';
-import data from '../data/history.json';
+import * as data from '../data/history.json';
 import { Response } from 'express';
-
+console.log({ data });
 @Controller()
 export class AppController {
   @Get()
