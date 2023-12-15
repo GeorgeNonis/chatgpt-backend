@@ -14,7 +14,16 @@ export class AppService {
       console.log({ data });
       chats.push(chat);
       console.log({ chats });
-      fs.writeFileSync(this.jsonFilePath, JSON.stringify(chats, null, 2));
+      fs.writeFile(this.jsonFilePath, JSON.stringify(chats, null, 2), (err) => {
+        if (err) console.log(err);
+        else {
+          console.log('File written successfully\n');
+          console.log('The written has the following contents:');
+          console.log(fs.readFileSync(this.jsonFilePath, 'utf8'));
+
+          console.log(this.jsonFilePath);
+        }
+      });
 
       return chat;
     } catch (error) {
