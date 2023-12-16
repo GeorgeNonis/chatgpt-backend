@@ -13,9 +13,9 @@ export class AppController {
   }
 
   @Post()
-  addChat(@Body() data: ConvI) {
-    const response = this.appService.addChat(data);
-    console.log({ data });
+  async addChat(@Body() data: ConvI) {
+    const response = await this.appService.addChat(data);
+
     return { status: 'success', message: response };
   }
 }
