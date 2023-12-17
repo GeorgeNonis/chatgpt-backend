@@ -9,17 +9,18 @@
  *
  * FETCH DATA
  *
- * GET  conversations - /conversations
- *      Gets the conversation history log
+ * GET  /conversations
+ *      Fetch the conversation history log
  *
  *
- * GET  conversation - /conversations/:id
- *      Gets the conversation by id:string
+ * GET  /conversation/:id
+ *      Fetch specific  conversation by id:string
  *
- * POST conversations - /conversations/:id
- *      Posts the conversation tohe conversation log.
- *      This also will be used on every message that is being created
- *      in a conversation. So if there's no stored conversation with a specific ID a new conversation
- *      will be generated from the backend and will save the message to the newly object in the conversation array
+ * POST /conversations
+ *      Creates a new conversation. This endpoint is used when starting a new conversation thread.
+ *      It does not require an ID since it creates a new resource.
+ *
+ * PATCH - /conversations/:id
+ *      Updates an existing conversation, typically used for adding a new message to a conversation. The :id parameter identifies the specific conversation to be updated.
  *
  */
