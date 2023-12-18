@@ -13,7 +13,7 @@
  *      Fetch the conversation history log
  *
  *
- * GET  /conversation/:id
+ * GET  /conversations/:id
  *      Fetch specific  conversation by id:string
  *
  * POST /conversations
