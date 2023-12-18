@@ -18,7 +18,7 @@
  *
  * POST /conversations
  *      Creates a new conversation. This endpoint is used when starting a new conversation thread.
- *      It does not require an ID since it creates a new resource.
+ *      Will pass id from the frontend to be synced.
  *
  * PATCH - /conversations/:id
  *      Updates an existing conversation, typically used for adding a new message to a conversation. The :id parameter identifies the specific conversation to be updated.
