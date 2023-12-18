@@ -3,8 +3,8 @@ import { fileContent } from 'utils/readFile';
 
 @Injectable()
 export class ConversationService {
-  getConversations() {
-    console.log(fileContent());
+  async getConversations() {
+    console.log(await fileContent());
   }
 
   getConversation(id: string) {
