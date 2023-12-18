@@ -4,7 +4,8 @@ import { fileContent } from 'utils';
 @Injectable()
 export class ConversationService {
   async getConversations() {
-    console.log(await fileContent());
+    const convs = await fileContent();
+    return convs;
   }
 
   getConversation(id: string) {
