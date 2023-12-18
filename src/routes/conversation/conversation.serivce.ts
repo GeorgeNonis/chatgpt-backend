@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { fileContent } from 'utils';
+import { ConversationI } from 'src/app.types';
+import { fileContent, writeContent } from 'utils';
 
 @Injectable()
 export class ConversationService {
@@ -19,8 +20,16 @@ export class ConversationService {
     }
   }
 
-  addConversation(id: string) {
-    console.log({ id });
+  async addConversation({ ...args }: ConversationI) {
+    const conversationLog = await fileContent();
+
+    conversationLog.push({ ...args });
+    try {
+      await writeContent(conversationLog);
+      return { status: 200, message: 'Successfully created conversation' };
+    } catch (error) {
+      return { error, message: 'Something went wrong' };
+    }
   }
   updateConversation(id: string) {
     console.log({ id });
