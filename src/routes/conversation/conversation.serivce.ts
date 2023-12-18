@@ -8,8 +8,15 @@ export class ConversationService {
     return convs;
   }
 
-  getConversation(id: string) {
-    console.log({ id });
+  async getConversation(id: string) {
+    const conversationLog = await fileContent();
+
+    const findConv = conversationLog.find((cnv) => cnv.id === id);
+    if (findConv === undefined) {
+      return { status: 404, message: 'No conversation found' };
+    } else {
+      return findConv;
+    }
   }
 
   addConversation(id: string) {
