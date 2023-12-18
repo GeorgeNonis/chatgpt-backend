@@ -1,10 +1,10 @@
 import * as fs from 'fs/promises';
 import { join } from 'path';
-import { ConvI } from 'src/app.types';
+import { ConversationI } from 'src/app.types';
 
 const dir = join(__dirname, '../data/history.json');
 
-export const fileContent = async (): Promise<ConvI[]> => {
+export const fileContent = async (): Promise<ConversationI[]> => {
   const data = await fs.readFile(dir, 'utf-8');
   const chats = JSON.parse(data);
 
