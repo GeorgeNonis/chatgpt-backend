@@ -10,6 +10,6 @@ export const fileContent = async () => {
   return chats;
 };
 
-export const writeContent = async (content) => {
+export const writeContent = async <T>(content: T) => {
   await fs.writeFile(dir, JSON.stringify(content, null, 2));
 };

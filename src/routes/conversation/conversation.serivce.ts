@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { fileContent } from 'utils/readFile';
+import { fileContent } from 'utils';
 
 @Injectable()
 export class ConversationService {
