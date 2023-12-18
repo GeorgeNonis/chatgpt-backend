@@ -7,4 +7,4 @@ import { ConversationService } from './conversation.serivce';
   controllers: [ConversationController],
   providers: [ConversationService],
 })
-export class HistoryModule {}
+export class ConversationModule {}

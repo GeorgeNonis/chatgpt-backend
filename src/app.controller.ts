@@ -3,7 +3,7 @@ import * as data from '../data/history.json';
 import { Response } from 'express';
 import { AppService } from './app.service';
 import { ConvI } from './app.types';
-console.log({ data });
+
 @Controller()
 export class AppController {
   constructor(private readonly appService: AppService) {}
