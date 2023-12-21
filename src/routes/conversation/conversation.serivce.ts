@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { ConversationI } from 'src/app.types';
 import { fileContent, writeContent } from 'utils';
+import { UpdateConvI } from './conversation.types';
 
 @Injectable()
 export class ConversationService {
@@ -31,7 +32,16 @@ export class ConversationService {
       return { error, message: 'Something went wrong' };
     }
   }
-  updateConversation(id: string) {
-    console.log({ id });
+  async updateConversation({ convId, messages }: UpdateConvI) {
+    const findConverastion = (await fileContent()).find(
+      (conv) => conv.id === convId,
+    );
+
+    if (findConverastion) {
+      findConverastion.messages[0].from = 'MeowGPT';
+    }
+
+    try {
+    } catch (error) {}
   }
 }
