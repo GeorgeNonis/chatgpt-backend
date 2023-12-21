@@ -44,9 +44,7 @@ export class ConversationService {
       };
     }
 
-    if (Array.isArray(messages)) {
-      conversation.messages.push(...messages);
-    }
+    conversation.messages.push(...messages);
 
     try {
       await writeContent(conversationLog);

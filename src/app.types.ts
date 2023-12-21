@@ -12,5 +12,5 @@ export type ConvI = {
 
 export interface ConversationI {
   id: string;
-  messages: ConvI[] | [];
+  messages: ConvI[] | any[];
 }
