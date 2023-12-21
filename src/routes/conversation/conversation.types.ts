@@ -1,6 +1,6 @@
-import { ConvI } from 'src/app.types';
+import { ConversationI } from 'src/app.types';
 
 export interface UpdateConvI {
-  convId: string;
-  messages: ConvI[];
+  convId: ConversationI['id'];
+  messages: ConversationI['messages'];
 }

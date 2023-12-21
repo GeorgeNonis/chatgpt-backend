@@ -33,15 +33,26 @@ export class ConversationService {
     }
   }
   async updateConversation({ convId, messages }: UpdateConvI) {
-    const findConverastion = (await fileContent()).find(
-      (conv) => conv.id === convId,
-    );
+    const conversationLog = await fileContent();
 
-    if (findConverastion) {
-      findConverastion.messages[0].from = 'MeowGPT';
+    const conversation = conversationLog.find((conv) => conv.id === convId);
+
+    if (!conversation) {
+      return {
+        status: 404,
+        message: 'No conversation found with the given ID',
+      };
+    }
+
+    if (Array.isArray(messages)) {
+      conversation.messages.push(...messages);
     }
 
     try {
-    } catch (error) {}
+      await writeContent(conversationLog);
+      return { status: 200, message: 'Successfully updated conversation' };
+    } catch (error) {
+      return { error, message: 'Something went wrong' };
+    }
   }
 }
