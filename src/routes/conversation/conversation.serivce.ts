@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { ConversationI } from 'src/app.types';
 import { fileContent, writeContent } from 'utils';
+import { UpdateConvI } from './conversation.types';
 
 @Injectable()
 export class ConversationService {
@@ -31,7 +32,25 @@ export class ConversationService {
       return { error, message: 'Something went wrong' };
     }
   }
-  updateConversation(id: string) {
-    console.log({ id });
+  async updateConversation({ convId, messages }: UpdateConvI) {
+    const conversationLog = await fileContent();
+
+    const conversation = conversationLog.find((conv) => conv.id === convId);
+
+    if (!conversation) {
+      return {
+        status: 404,
+        message: 'No conversation found with the given ID',
+      };
+    }
+
+    conversation.messages.push(...messages);
+
+    try {
+      await writeContent(conversationLog);
+      return { status: 200, message: 'Successfully updated conversation' };
+    } catch (error) {
+      return { error, message: 'Something went wrong' };
+    }
   }
 }

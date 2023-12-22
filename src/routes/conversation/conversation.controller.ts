@@ -1,6 +1,6 @@
 import { Body, Controller, Get, Param, Patch, Post } from '@nestjs/common';
 import { ConversationService } from './conversation.serivce';
-import { ConversationI } from 'src/app.types';
+import { ConvI, ConversationI } from 'src/app.types';
 
 @Controller('conversations')
 export class ConversationController {
@@ -19,7 +19,10 @@ export class ConversationController {
     return this.conversationService.addConversation({ id, ...data });
   }
   @Patch(':id')
-  updateConversation(@Param('id') id: string) {
-    return this.conversationService.updateConversation(id);
+  updateConversation(
+    @Param('convId') convId: string,
+    @Body('messages') messages: ConvI[],
+  ) {
+    return this.conversationService.updateConversation({ convId, messages });
   }
 }
