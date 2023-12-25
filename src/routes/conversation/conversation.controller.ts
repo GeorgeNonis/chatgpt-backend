@@ -20,9 +20,12 @@ export class ConversationController {
   }
   @Patch(':id')
   updateConversation(
-    @Param('convId') convId: string,
+    @Param('id') id: string,
     @Body('messages') messages: ConvI[],
   ) {
-    return this.conversationService.updateConversation({ convId, messages });
+    return this.conversationService.updateConversation({
+      convId: id,
+      messages,
+    });
   }
 }
